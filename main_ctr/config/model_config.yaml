@@ -1,0 +1,901 @@
+Base:
+    model_root: './checkpoints/'
+    num_workers: 8
+    verbose: 1
+    early_stop_patience: 2
+    pickle_feature_encoder: True
+    save_best_only: True
+    eval_steps: null
+    debug_mode: False
+    group_id: null
+    use_features: null
+    feature_specs: null
+    feature_config: null
+
+MAP_HSTU_AutoInt_default:
+    model: MAP_HSTU_AutoInt
+    dataset_id: criteo_x1_default
+    loss: binary_crossentropy
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.e-3
+    embedding_regularizer: 0
+    net_regularizer: 0
+    batch_size: 10000
+    embedding_dim: 64
+    dnn_hidden_units: [400, 400]
+    dnn_activations: relu
+    net_dropout: 0
+    num_heads: 2
+    attention_layers: 3
+    attention_dim: 64
+    use_residual: True
+    batch_norm: False
+    layer_norm: True
+    use_scale: False
+    use_wide: False
+    epochs: 100
+    shuffle: True
+    seed: 2019
+    monitor: {'AUC': 1, 'logloss': -1}
+    monitor_mode: 'max'
+
+MAP_AutoInt_all_feature_default:
+    model: MAP_2_AutoInt
+    dataset_id: criteo_x1_default
+    loss: binary_crossentropy
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.e-3
+    embedding_regularizer: 0
+    net_regularizer: 0
+    batch_size: 10000
+    embedding_dim: 64
+    dnn_hidden_units: [400, 400]
+    dnn_activations: relu
+    net_dropout: 0
+    num_heads: 2
+    attention_layers: 3
+    attention_dim: 64
+    use_residual: True
+    batch_norm: False
+    layer_norm: True
+    use_scale: False
+    use_wide: False
+    epochs: 100
+    shuffle: True
+    seed: 2019
+    monitor: {'AUC': 1, 'logloss': -1}
+    monitor_mode: 'max'
+
+AutoInt_avazu_x1_005_73d0b026:
+    attention_dim: 256
+    attention_layers: 5
+    batch_norm: true
+    batch_size: 4096
+    dataset_id: avazu_x1_3fb65689
+    debug: false
+    dnn_activations: relu
+    dnn_hidden_units: [400, 400, 400]
+    embedding_dim: 10
+    embedding_regularizer: 0.01
+    epochs: 100
+    every_x_epochs: 1
+    layer_norm: true
+    learning_rate: 0.001
+    loss: binary_crossentropy
+    metrics: [AUC, logloss]
+    model: AutoInt
+    model_id: AutoInt_base
+    model_root: ./Avazu/AutoInt_avazu_x1/
+    monitor: AUC
+    monitor_mode: max
+    net_dropout: 0.1
+    net_regularizer: 0
+    num_heads: 2
+    num_workers: 3
+    optimizer: adam
+    patience: 2
+    pickle_feature_encoder: true
+    save_best_only: true
+    seed: 2021
+    shuffle: true
+    task: binary_classification
+    use_hdf5: true
+    use_residual: true
+    use_scale: true
+    use_wide: false
+    verbose: 0
+
+AutoInt_criteo_x1_012_e71394ec:
+    attention_dim: 256
+    attention_layers: 3
+    batch_norm: false
+    batch_size: 10000
+    dataset_id: criteo_x1_default
+    debug: false
+    dnn_activations: relu
+    dnn_hidden_units: []
+    embedding_dim: 64
+    embedding_regularizer: 1.0e-05
+    epochs: 100
+    every_x_epochs: 1
+    layer_norm: true
+    learning_rate: 0.001
+    loss: binary_crossentropy
+    metrics: [AUC, logloss]
+    model: AutoInt
+    model_id: AutoInt_base
+    monitor: AUC
+    monitor_mode: max
+    net_dropout: 0
+    net_regularizer: 0
+    num_heads: 4
+    num_workers: 3
+    optimizer: adam
+    patience: 2
+    pickle_feature_encoder: true
+    save_best_only: true
+    seed: 2021
+    shuffle: true
+    task: binary_classification
+    use_hdf5: true
+    use_residual: true
+    use_scale: true
+    use_wide: true
+    verbose: 0
+
+DLF_default:
+    model: DLF
+    dataset_id: criteo_x1_default
+    loss: 'binary_crossentropy'
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.e-3
+    embedding_regularizer: 0
+    net_regularizer: 0
+    batch_size: 10000
+    embedding_dim: 64
+    # dnn_hidden_units: [400, 400]
+    dnn_activations: relu
+    net_dropout: 0
+    num_heads: 2
+    attention_layers: 3
+    attention_dim: 40
+    use_residual: True
+    batch_norm: False
+    layer_norm: False
+    use_scale: False
+    use_wide: False
+    epochs: 100
+    shuffle: True
+    seed: 2019
+    monitor: {'AUC': 1, 'logloss': -1}
+    monitor_mode: 'max'
+    num_emb_lcb: 16
+    num_emb_fmb: 16
+    rank_fmb: 24
+    num_hidden_DLF: 2
+    dim_hidden_DLF: 512
+    num_hidden_head: 2
+    dim_hidden_head: 512
+    dim_output: 1
+
+DLF_lcb_default:
+    model: DLF_lcb
+    dataset_id: criteo_x1_default
+    loss: 'binary_crossentropy'
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.e-3
+    embedding_regularizer: 0
+    net_regularizer: 0
+    batch_size: 10000
+    embedding_dim: 64
+    # dnn_hidden_units: [400, 400]
+    dnn_activations: relu
+    net_dropout: 0
+    num_heads: 2
+    attention_layers: 3
+    attention_dim: 40
+    use_residual: True
+    batch_norm: False
+    layer_norm: False
+    use_scale: False
+    use_wide: False
+    epochs: 100
+    shuffle: True
+    seed: 2019
+    monitor: {'AUC': 1, 'logloss': -1}
+    monitor_mode: 'max'
+    num_emb_lcb: 16
+    num_emb_fmb: 16
+    rank_fmb: 24
+    num_hidden_DLF: 2
+    dim_hidden_DLF: 512
+    num_hidden_head: 2
+    dim_hidden_head: 512
+    dim_output: 1
+    
+DLF_fmb_default:
+    model: DLF_fmb
+    dataset_id: criteo_x1_default
+    loss: 'binary_crossentropy'
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.e-3
+    embedding_regularizer: 0
+    net_regularizer: 0
+    batch_size: 10000
+    embedding_dim: 64
+    # dnn_hidden_units: [400, 400]
+    dnn_activations: relu
+    net_dropout: 0
+    num_heads: 2
+    attention_layers: 3
+    attention_dim: 40
+    use_residual: True
+    batch_norm: False
+    layer_norm: False
+    use_scale: False
+    use_wide: False
+    epochs: 100
+    shuffle: True
+    seed: 2019
+    monitor: {'AUC': 1, 'logloss': -1}
+    monitor_mode: 'max'
+    num_emb_lcb: 16
+    num_emb_fmb: 16
+    rank_fmb: 24
+    num_hidden_DLF: 2
+    dim_hidden_DLF: 512
+    num_hidden_head: 2
+    dim_hidden_head: 512
+    dim_output: 1
+    
+DLF_att_cross_default:
+    model: DLF_att_cross
+    dataset_id: criteo_x1_default
+    loss: 'binary_crossentropy'
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.e-3
+    embedding_regularizer: 0
+    net_regularizer: 0
+    batch_size: 10000
+    embedding_dim: 64
+    # dnn_hidden_units: [400, 400]
+    dnn_activations: relu
+    net_dropout: 0
+    num_heads: 2
+    attention_layers: 3
+    attention_dim: 64
+    use_residual: True
+    batch_norm: False
+    layer_norm: False
+    use_scale: False
+    use_wide: False
+    epochs: 100
+    shuffle: True
+    seed: 2019
+    monitor: {'AUC': 1, 'logloss': -1}
+    monitor_mode: 'max'
+    num_emb_lcb: 16
+    num_emb_fmb: 16
+    num_emb_att: 16
+    rank_fmb: 24
+    num_hidden_DLF: 2
+    dim_hidden_DLF: 512
+    num_hidden_head: 2
+    dim_hidden_head: 512
+    dim_output: 1
+        
+DLF_att_self_default:
+    model: DLF_att_self
+    dataset_id: criteo_x1_default
+    loss: 'binary_crossentropy'
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.e-3
+    embedding_regularizer: 0
+    net_regularizer: 0
+    batch_size: 10000
+    embedding_dim: 64
+    # dnn_hidden_units: [400, 400]
+    dnn_activations: relu
+    net_dropout: 0
+    num_heads: 2
+    attention_layers: 3
+    attention_dim: 64
+    use_residual: True
+    batch_norm: False
+    layer_norm: False
+    use_scale: False
+    use_wide: False
+    epochs: 100
+    shuffle: True
+    seed: 2019
+    monitor: {'AUC': 1, 'logloss': -1}
+    monitor_mode: 'max'
+    num_emb_lcb: 16
+    num_emb_fmb: 16
+    num_emb_att: 16
+    rank_fmb: 24
+    num_hidden_DLF: 2
+    dim_hidden_DLF: 512
+    num_hidden_head: 2
+    dim_hidden_head: 512
+    dim_output: 1
+    
+DLF_att_self_gate_default:
+    model: DLF_att_self_gate
+    dataset_id: criteo_x1_default
+    loss: 'binary_crossentropy'
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.e-3
+    embedding_regularizer: 0
+    net_regularizer: 0
+    batch_size: 10000
+    embedding_dim: 64
+    # dnn_hidden_units: [400, 400]
+    dnn_activations: relu
+    net_dropout: 0
+    num_heads: 2
+    attention_layers: 3
+    attention_dim: 64
+    use_residual: True
+    batch_norm: False
+    layer_norm: False
+    use_scale: False
+    use_wide: False
+    epochs: 100
+    shuffle: True
+    seed: 2019
+    monitor: {'AUC': 1, 'logloss': -1}
+    monitor_mode: 'max'
+    num_emb_lcb: 16
+    num_emb_fmb: 16
+    num_emb_att: 16
+    rank_fmb: 24
+    num_hidden_DLF: 2
+    dim_hidden_DLF: 512
+    num_hidden_head: 2
+    dim_hidden_head: 512
+    dim_output: 1
+    
+DLF_att_self_multi_gate_default:
+    model: DLF_att_self_multi_gate
+    dataset_id: criteo_x1_default
+    loss: 'binary_crossentropy'
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.e-3
+    embedding_regularizer: 0
+    net_regularizer: 0
+    batch_size: 10000
+    embedding_dim: 64
+    # dnn_hidden_units: [400, 400]
+    dnn_activations: relu
+    net_dropout: 0
+    num_heads: 2
+    attention_layers: 3
+    attention_dim: 64
+    use_residual: True
+    batch_norm: False
+    layer_norm: False
+    use_scale: False
+    use_wide: False
+    epochs: 100
+    shuffle: True
+    seed: 2019
+    monitor: {'AUC': 1, 'logloss': -1}
+    monitor_mode: 'max'
+    num_emb_lcb: 16
+    num_emb_fmb: 16
+    num_emb_att: 16
+    rank_fmb: 24
+    num_hidden_DLF: 2
+    dim_hidden_DLF: 512
+    num_hidden_head: 2
+    dim_hidden_head: 512
+    dim_output: 1
+    
+DLF_multi_gate_default:
+    model: DLF_multi_gate
+    dataset_id: criteo_x1_default
+    loss: 'binary_crossentropy'
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.e-3
+    embedding_regularizer: 0
+    net_regularizer: 0
+    batch_size: 10000
+    embedding_dim: 64
+    # dnn_hidden_units: [400, 400]
+    dnn_activations: relu
+    net_dropout: 0
+    num_heads: 2
+    attention_layers: 3
+    attention_dim: 64
+    use_residual: True
+    batch_norm: False
+    layer_norm: False
+    use_scale: False
+    use_wide: False
+    epochs: 100
+    shuffle: True
+    seed: 2019
+    monitor: {'AUC': 1, 'logloss': -1}
+    monitor_mode: 'max'
+    num_emb_lcb: 16
+    num_emb_fmb: 16
+    num_emb_att: 16
+    rank_fmb: 24
+    num_hidden_DLF: 2
+    dim_hidden_DLF: 512
+    num_hidden_head: 2
+    dim_hidden_head: 512
+    dim_output: 1
+
+AutoInt_default:
+    model: AutoInt
+    dataset_id: criteo_x1_default
+    loss: 'binary_crossentropy'
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.e-3
+    embedding_regularizer: 0
+    net_regularizer: 0
+    batch_size: 10000
+    embedding_dim: 40
+    dnn_hidden_units: [400, 400]
+    dnn_activations: relu
+    net_dropout: 0
+    num_heads: 2
+    attention_layers: 3
+    attention_dim: 40
+    use_residual: True
+    batch_norm: False
+    layer_norm: False
+    use_scale: False
+    use_wide: False
+    epochs: 100
+    shuffle: True
+    seed: 2019
+    monitor: {'AUC': 1, 'logloss': -1}
+    monitor_mode: 'max'
+
+MAP_AutoInt_default:
+    model: MAP_AutoInt
+    dataset_id: criteo_x1_default
+    loss: 'binary_crossentropy'
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.e-3
+    embedding_regularizer: 0
+    net_regularizer: 0
+    batch_size: 10000
+    embedding_dim: 40
+    dnn_hidden_units: [400, 400]
+    dnn_activations: relu
+    net_dropout: 0
+    num_heads: 2
+    attention_layers: 3
+    attention_dim: 40
+    use_residual: True
+    batch_norm: False
+    layer_norm: False
+    use_scale: False
+    use_wide: False
+    epochs: 100
+    shuffle: True
+    seed: 2019
+    monitor: {'AUC': 1, 'logloss': -1}
+    monitor_mode: 'max'
+
+HSTU_AutoInt_default:
+    model: HSTU_AutoInt
+    dataset_id: criteo_x1_default
+    loss: 'binary_crossentropy'
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.e-3
+    embedding_regularizer: 0
+    net_regularizer: 0
+    batch_size: 10000
+    embedding_dim: 40
+    dnn_hidden_units: [400, 400]
+    dnn_activations: relu
+    net_dropout: 0
+    num_heads: 2
+    attention_layers: 3
+    attention_dim: 40
+    use_residual: True
+    batch_norm: False
+    layer_norm: False
+    use_scale: False
+    use_wide: False
+    epochs: 100
+    shuffle: True
+    seed: 2019
+    monitor: {'AUC': 1, 'logloss': -1}
+    monitor_mode: 'max'
+
+fuxi_alpha_AutoInt_default:
+    model: fuxi_alpha_AutoInt
+    dataset_id: criteo_x1_default
+    loss: 'binary_crossentropy'
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.e-3
+    embedding_regularizer: 0
+    net_regularizer: 0
+    batch_size: 10000
+    embedding_dim: 64
+    dnn_hidden_units: [400, 400]
+    dnn_activations: relu
+    net_dropout: 0
+    num_heads: 2
+    attention_layers: 3
+    attention_dim: 40
+    use_residual: True
+    batch_norm: False
+    layer_norm: False
+    use_scale: False
+    use_wide: False
+    epochs: 100
+    shuffle: True
+    seed: 2019
+    monitor: {'AUC': 1, 'logloss': -1}
+    monitor_mode: 'max'
+    
+HSTU_pos_AutoInt_default:
+    model: HSTU_pos_AutoInt
+    dataset_id: criteo_x1_default
+    loss: 'binary_crossentropy'
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.e-3
+    embedding_regularizer: 0
+    net_regularizer: 0
+    batch_size: 10000
+    embedding_dim: 40
+    dnn_hidden_units: [400, 400]
+    dnn_activations: relu
+    net_dropout: 0
+    num_heads: 2
+    attention_layers: 3
+    attention_dim: 40
+    use_residual: True
+    batch_norm: False
+    layer_norm: False
+    use_scale: False
+    use_wide: False
+    epochs: 100
+    shuffle: True
+    seed: 2019
+    monitor: {'AUC': 1, 'logloss': -1}
+    monitor_mode: 'max'
+
+DCNv2_default: # This is a config template
+    model: DCNv2
+    dataset_id: criteo_x1_default
+    loss: 'binary_crossentropy'
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    model_structure: parallel
+    use_low_rank_mixture: True
+    low_rank: 32
+    num_experts: 4
+    learning_rate: 1.0e-3
+    embedding_regularizer: 0
+    net_regularizer: 0
+    batch_size: 10000
+    embedding_dim: 40
+    stacked_dnn_hidden_units: [500, 500, 500]
+    parallel_dnn_hidden_units: [500, 500, 500]
+    dnn_activations: relu
+    num_cross_layers: 3
+    net_dropout: 0
+    batch_norm: False
+    epochs: 100
+    shuffle: True
+    seed: 2024
+    monitor: {'AUC': 1, 'logloss': -1}
+    monitor_mode: 'max'
+
+DeepFM_default: # This is a config template
+    model: DeepFM
+    dataset_id: criteo_x1_default
+    loss: 'binary_crossentropy'
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    hidden_units: [300, 300, 300]
+    hidden_activations: relu
+    net_regularizer: 0
+    embedding_regularizer: 0
+    learning_rate: 1.e-3
+    batch_norm: False
+    net_dropout: 0
+    batch_size: 10000
+    embedding_dim: 40
+    epochs: 100
+    shuffle: True
+    seed: 2019
+    monitor: {'AUC': 1, 'logloss': -1}
+    monitor_mode: 'max'
+
+FiBiNET_default: # This is a config template
+    model: FiBiNET
+    dataset_id: criteo_x1_default
+    loss: binary_crossentropy
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.0e-3
+    embedding_regularizer: 0
+    net_regularizer: 0
+    batch_size: 500
+    embedding_dim: 40
+    hidden_units: [500, 500, 500]
+    hidden_activations: relu
+    bilinear_type: field_interaction
+    reduction_ratio: 3
+    net_dropout: 0
+    batch_norm: False
+    epochs: 100
+    shuffle: True
+    seed: 2019
+    monitor: {'AUC': 1, 'logloss': -1}
+    monitor_mode: 'max'
+
+PNN_default: # This is a config template
+    model: PNN
+    dataset_id: criteo_x1_default
+    loss: 'binary_crossentropy'
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    hidden_units: [300, 300, 300]
+    hidden_activations: relu
+    embedding_regularizer: 0
+    net_regularizer: 0
+    learning_rate: 1.e-3
+    net_dropout: 0
+    batch_norm: False
+    batch_size: 10000
+    embedding_dim: 40
+    epochs: 100
+    shuffle: True
+    seed: 2019
+    monitor: {'AUC': 1, 'logloss': -1}
+    monitor_mode: 'max'
+
+GDCN_default: # This is a config template
+    model: GDCNP
+    dataset_id: criteo_x1_default
+    loss: 'binary_crossentropy'
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.0e-3
+    embedding_regularizer: 0
+    net_regularizer: 0
+    batch_size: 10000
+    embedding_dim: 40
+    dnn_hidden_units: [1024, 512, 256]
+    dnn_activations: relu
+    num_cross_layers: 3
+    net_dropout: 0
+    batch_norm: False
+    epochs: 100
+    shuffle: True
+    seed: 20222023
+    monitor: {'AUC': 1, 'logloss': -1}
+    monitor_mode: 'max'
+
+LR_default: # This is a config template
+    model: LR
+    dataset_id: criteo_x1_default
+    loss: binary_crossentropy
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.0e-3
+    regularizer: 0
+    embedding_dim: 40
+    batch_size: 10000
+    epochs: 100
+    shuffle: True
+    seed: 2019
+    monitor: {'AUC': 1, 'logloss': -1}
+    monitor_mode: 'max'
+
+xDeepFM_default: # This is a config template（基本没法跑）
+    model: xDeepFM
+    dataset_id: criteo_x1_default
+    loss: 'binary_crossentropy'
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.0e-3
+    embedding_regularizer: 0
+    net_regularizer: 0
+    batch_size: 100
+    embedding_dim: 40
+    dnn_hidden_units: [500, 500, 500]
+    cin_hidden_units: [32, 32, 32]
+    hidden_activations: relu
+    net_dropout: 0
+    batch_norm: False
+    epochs: 100
+    shuffle: True
+    seed: 2019
+    monitor: {'AUC': 1, 'logloss': -1}
+    monitor_mode: 'max'
+
+FinalMLP_default: # This is a config template（需要单独跑）
+    model: FinalMLP
+    dataset_id: criteo_x1_default
+    loss: binary_crossentropy
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.e-3
+    embedding_regularizer: 0
+    net_regularizer: 0
+    mlp1_hidden_units: [1024, 512]
+    mlp1_hidden_activations: relu
+    mlp1_dropout: 0
+    mlp1_batch_norm: False
+    mlp2_hidden_units: [1024, 512, 256]
+    mlp2_hidden_activations: relu
+    mlp2_dropout: 0
+    mlp2_batch_norm: False
+    use_fs: True
+    fs_hidden_units: [1024, 512]
+    fs1_context: []
+    fs2_context: []
+    num_heads: 2
+    batch_size: 10000
+    embedding_dim: 16
+    epochs: 100
+    shuffle: True
+    seed: 20222023
+    monitor: {'AUC': 1, 'logloss': -1}
+    monitor_mode: 'max'
+
+FinalNet_default: # This is a config template
+    model: FinalNet
+    dataset_id: criteo_x1_default
+    loss: binary_crossentropy
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.e-3
+    embedding_regularizer: 0
+    net_regularizer: 0
+    batch_size: 10000
+    embedding_dim: 40
+    block_type: "2B"
+    batch_norm: True
+    use_feature_gating: True
+    block1_hidden_units: [64, 64, 64]
+    block1_hidden_activations: null
+    block1_dropout: 0
+    block2_hidden_units: [64, 64, 64]
+    block2_hidden_activations: null
+    block2_dropout: 0
+    residual_type: concat
+    epochs: 100
+    shuffle: True
+    seed: 20222023
+    monitor: {'AUC': 1, 'logloss': -1}
+    monitor_mode: 'max'
+
+FM_default: # This is a config template
+    model: FM
+    dataset_id: criteo_x1_default
+    loss: binary_crossentropy
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.0e-3
+    regularizer: 0
+    batch_size: 10000
+    embedding_dim: 10
+    epochs: 100
+    shuffle: True
+    seed: 2019
+    monitor: {'AUC': 1, 'logloss': -1}
+    monitor_mode: 'max'
+
+SAM_default: # This is a config template（需要单独跑）
+    model: SAM
+    dataset_id: criteo_x1_default
+    loss: 'binary_crossentropy'
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.e-3
+    embedding_regularizer: 0
+    net_regularizer: 0
+    batch_size: 4096
+    embedding_dim: 40
+    interaction_type: "SAM2E"
+    aggregation: "concat"
+    num_interaction_layers: 3
+    use_residual: False
+    net_dropout: 0
+    epochs: 100
+    shuffle: True
+    seed: 2022
+    monitor: 'AUC'
+    monitor_mode: 'max'
+
+AFN_default: # This is a config template（只能跑单独）
+    model: AFN
+    dataset_id: criteo_x1_default
+    loss: binary_crossentropy
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.e-3
+    embedding_regularizer: 0
+    net_regularizer: 0
+    batch_size: 10000
+    embedding_dim: 20
+    logarithmic_neurons: 1200
+    afn_hidden_units: [400, 400, 400]
+    afn_activations: relu
+    afn_dropout: 0
+    ensemble_dnn: False
+    dnn_hidden_units: [400, 400, 400]
+    dnn_activations: relu
+    dnn_dropout: 0
+    batch_norm: False
+    epochs: 100
+    shuffle: True
+    seed: 2019
+    monitor: {'AUC': 1, 'logloss': -1}
+    monitor_mode: 'max'
+
+AFM_default: # This is a config template（只能跑单独）
+    model: AFM
+    dataset_id: criteo_x1_default
+    loss: binary_crossentropy
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.e-3
+    embedding_regularizer: 0
+    net_regularizer: 0
+    batch_size: 10000
+    embedding_dim: 40
+    attention_dim: 40
+    attention_dropout: [0, 0]
+    embedding_dropout: 0
+    use_attention: True
+    epochs: 100
+    shuffle: True
+    seed: 2019
+    monitor: {'AUC': 1, 'logloss': -1}
+    monitor_mode: 'max'
