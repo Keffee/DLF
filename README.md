@@ -1,6 +1,6 @@
 # DLF
 The source code for the paper "DLF: Enhancing Explicit-Implicit Interaction via Dynamic Low-Order-Aware Fusion for CTR Prediction"
-![Frame Figure](./main.pdf)
+![Frame Figure](./sigir_25.png)
 
 ## Usage of this source code
 1. Please download the dataset from the website mentioned in our paper.
